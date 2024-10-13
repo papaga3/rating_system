@@ -1,50 +1,18 @@
-# React + TypeScript + Vite
+# Rating System Prototype
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Summary
+This is a prototype for a 5 star rating system for a freelancer website.  
+The main programming language is TypeScript, the main web framework is React.  
+The project template is created using Vite.  
+**Disclaimer**: This is a UI prototype, therefore, it does not connect to any external APIs / databases.
 
-Currently, two official plugins are available:
+## How to run the project
+1.  Clone the project using `git clone`.
+2.  Run `yarn` to install dependencies.
+3.  Run `yarn dev` to start a development server.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Structures
++ `src/components`: All React components
++ `src/dummy_data`: Dummy data used to populate the UI (will be replace with actual server data in future iteration).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Screenshots

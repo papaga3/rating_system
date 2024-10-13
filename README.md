@@ -14,5 +14,6 @@ The project template is created using Vite.
 ## Project Structures
 + `src/components`: All React components
 + `src/dummy_data`: Dummy data used to populate the UI (will be replace with actual server data in future iteration).
++ `src/types`: Common types used in the project.
 
 ## Screenshots

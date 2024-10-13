@@ -1,0 +1,27 @@
+[
+    {
+        "id": "service_01", 
+        "name": "Business Consultant Service",
+        "avgRating": 3.5
+    },
+    {
+        "id": "service_02", 
+        "name": "Fullstack Web Development Service",
+        "avgRating": 4.0
+    },
+    {
+        "id": "service_03", 
+        "name": "Finnish Language Learning Service",
+        "avgRating": 4.8
+    },
+    {
+        "id": "service_04", 
+        "name": "Health Service",
+        "avgRating": 3.7
+    },
+    {
+        "id": "service_05", 
+        "name": "Marketing Service",
+        "avgRating": 4.2
+    }
+]

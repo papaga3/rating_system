@@ -25,7 +25,7 @@ const ServiceComponent: React.FC<Props> = ( { service } ) => {
                 <Typography> Average rating: { service.avgRating } <StarIcon sx={ {verticalAlign: "text-bottom"} } htmlColor="#ffbe33"/> </Typography>
                 <CardActions>
                     <Button variant="solid" onClick={() => setOpenRating(true)} >
-                        Rate now!
+                        Detailed Rating
                     </Button>
                 </CardActions>
             </Card>

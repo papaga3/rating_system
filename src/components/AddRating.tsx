@@ -30,6 +30,7 @@ const AddRating: React.FC<Props> = ({ serviceID, ratings, setRatings }) => {
             <Rating
                 name="add-rating"
                 value={rating}
+                //@ts-ignore
                 onChange={(event, newRating) => {
                     setRating(newRating)
                 }}

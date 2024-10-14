@@ -1,0 +1,1 @@
+{"root":["./src/vite-env.d.ts","./src/dummy_data/rating_data_set.ts","./src/types/types.ts","./src/app.tsx","./src/main.tsx","./src/components/addrating.tsx","./src/components/comment.tsx","./src/components/rateservicecomponent.tsx","./src/components/servicecomponent.tsx"],"version":"5.6.3"}

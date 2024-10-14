@@ -1,15 +1,19 @@
 import { Star, StarBorder } from "@mui/icons-material";
 import { 
-    Button,
     Divider,
+    Grid,
     Modal,
     ModalClose,
     Sheet,
     Typography
 } from "@mui/joy";
-
-import { Service } from "@/types/types";
 import { BarChart } from "@mui/x-charts";
+
+import Comment from "./Comment";
+import { Service } from "@/types/types";
+import { dataset_service_01 } from "../dummy_data/rating_data_set";
+import AddRating from "./AddRating";
+import { useState } from "react";
 
 interface Props {
     service: Service;
@@ -38,6 +42,8 @@ const RateServiceComponent: React.FC<Props> = ( { service, open, setOpen } ) => 
         { "star": 5, "amount": 20 }
     ];
 
+    const [ ratings, setRatings ] = useState(dataset_service_01);
+
     const roundScore = Math.round(service.avgRating);
     let starArray = [0, 0, 0, 0, 0];
     for(let i = 0; i < roundScore; i++) {
@@ -61,7 +67,8 @@ const RateServiceComponent: React.FC<Props> = ( { service, open, setOpen } ) => 
                     maxHeight: 500,
                     borderRadius: 'md',
                     p: 3,
-                    boxShadow: 'lg'
+                    boxShadow: 'lg',
+                    overflow: 'scroll'
                 }}
             >
                 <ModalClose variant="plain" sx={{ m: 1 }} />
@@ -100,11 +107,22 @@ const RateServiceComponent: React.FC<Props> = ( { service, open, setOpen } ) => 
 
                 <Divider sx={ { margin: "10px" } } />
 
-                <Typography level="title-md" textAlign="left"> Top Review </Typography>
+                <Typography level="title-md" textAlign="left"> Top Reviews </Typography>
+                <Grid container spacing={2} sx={{ flexGrow: 1 }}>
+                {
+                    ratings.map((item, index) => {
+                        return(
+                            <Grid key={`comment-${item.id}-${index}`}>
+                                <Comment rating={item} />
+                            </Grid>
+                        )
+                    })
+                }
+                </Grid>
                 
                 <Divider sx={ { margin: "10px" } } />
-
-                <Button sx={{ width: "100%" }}> Rate now! </Button>
+                <AddRating serviceID={service.id} ratings={ratings} setRatings={setRatings} />
+              
             </Sheet>
         </Modal>
     );

@@ -1,6 +1,6 @@
-import { Rating } from "@/types/types";
+import { RatingType } from "@/types/types";
 
-export const dataset_service_01: Rating[] = [
+export const dataset_service_01: RatingType[] = [
     {
         "service_id": "service_01",
         "id": "comment_01_s_01",
@@ -21,7 +21,7 @@ export const dataset_service_01: Rating[] = [
     }
 ];
 
-export const dataset_service_02: Rating[] = [
+export const dataset_service_02: RatingType[] = [
     {
         "service_id": "service_02",
         "id": "comment_01_s_02",

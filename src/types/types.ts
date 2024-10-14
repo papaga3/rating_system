@@ -6,7 +6,7 @@ export interface Service {
     avgRating: number;
 }
 
-export interface Rating {
+export interface RatingType {
     service_id: string;
     id: string;
     rating: number;

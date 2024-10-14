@@ -29,7 +29,7 @@ const ServiceComponent: React.FC<Props> = ( { service } ) => {
                     </Button>
                 </CardActions>
             </Card>
-            <RateServiceComponent service={service} ratings={[]} open={openRating} setOpen={setOpenRating} />
+            <RateServiceComponent service={service} open={openRating} setOpen={setOpenRating} />
         </div>
     );
 }

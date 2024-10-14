@@ -1,6 +1,6 @@
-import { Rating, Service } from "@/types/types";
 import { Star, StarBorder } from "@mui/icons-material";
 import { 
+    Button,
     Divider,
     Modal,
     ModalClose,
@@ -8,15 +8,36 @@ import {
     Typography
 } from "@mui/joy";
 
+import { Service } from "@/types/types";
+import { BarChart } from "@mui/x-charts";
+
 interface Props {
     service: Service;
-    ratings: Rating[];
+    // ratings: Rating[];
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const RateServiceComponent: React.FC<Props> = ( { service, ratings, open, setOpen } ) => {
-    console.log(ratings);
+const chartSetting = {
+    xAxis: [
+      {
+        label: 'Number Of Comments',
+      },
+    ],
+    width: 500,
+    height: 200,
+    categoryGapRatio: 0.3
+};
+
+const RateServiceComponent: React.FC<Props> = ( { service, open, setOpen } ) => {
+    const dataset = [
+        { "star": 1, "amount": 10 },
+        { "star": 2, "amount": 10 },
+        { "star": 3, "amount": 20 },
+        { "star": 4, "amount": 40 },
+        { "star": 5, "amount": 20 }
+    ];
+
     const roundScore = Math.round(service.avgRating);
     let starArray = [0, 0, 0, 0, 0];
     for(let i = 0; i < roundScore; i++) {
@@ -34,9 +55,9 @@ const RateServiceComponent: React.FC<Props> = ( { service, ratings, open, setOpe
             <Sheet
                 variant="outlined"
                 sx={{ 
-                    minWidth: 300,
+                    minWidth: 500,
                     maxWidth: 500,
-                    minHeight: 300,
+                    minHeight: 500,
                     maxHeight: 500,
                     borderRadius: 'md',
                     p: 3,
@@ -44,8 +65,11 @@ const RateServiceComponent: React.FC<Props> = ( { service, ratings, open, setOpe
                 }}
             >
                 <ModalClose variant="plain" sx={{ m: 1 }} />
+
                 <Typography level="title-md" textAlign="left"> {service.name} </Typography> 
+
                 <Divider sx={ { margin: "10px" } }/>
+
                 <Typography level="body-md">
                     Average Rating: 
                     {
@@ -60,6 +84,27 @@ const RateServiceComponent: React.FC<Props> = ( { service, ratings, open, setOpe
                     }
                     { service.avgRating } 
                 </Typography>
+
+                <Divider sx={ { margin: "10px" } }/>
+                
+                <Typography level="title-md" textAlign="left"> Breakdown </Typography>
+                <BarChart
+                    dataset={dataset}
+                    yAxis={[{label: "rating", scaleType: 'band', dataKey: 'star' }]}
+                    series={[{ dataKey: 'amount', label: 'amount' }]}
+                    layout="horizontal"
+                    {...chartSetting}
+                >
+
+                </BarChart>
+
+                <Divider sx={ { margin: "10px" } } />
+
+                <Typography level="title-md" textAlign="left"> Top Review </Typography>
+                
+                <Divider sx={ { margin: "10px" } } />
+
+                <Button sx={{ width: "100%" }}> Rate now! </Button>
             </Sheet>
         </Modal>
     );
